@@ -27,7 +27,7 @@ export function templates() {
     .pipe(
       tap(file => {
         const contents = edge.renderString(String(file.contents), data);
-        file.contents = new Buffer(contents);
+        file.contents = new Buffer.from(contents);
       })
     )
     .pipe(rename({ extname: '.html' }))
